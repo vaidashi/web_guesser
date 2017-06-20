@@ -1,16 +1,33 @@
 
-
 <html>
-  <head></head>
-  <body>
-    <p>
-      <!-- The SECRET NUMBER is <%= number %> -->
-      <%= message %>
-    </p>
+  <head>
+    <% if @way_too_wrong %>
+      <style>
+      body {
+        background: red;
+        }
+      </style>
+    <% elsif @wrong %>
+      <style>
+      body {
+        background: salmon;
+      }
+    </style>
+    <% elsif @correct %>
+    <style>
+      body {
+        background: green;
+      }
+    </style>
+    <% end %>
+  </head>
+    <body>
+    <form>
+      <input type='text' name='guess' />
+      <input type='submit' value='Guess!' />
+    </form>
+      <p>
+        <%= message %>
+      </p>
   </body>
 </html>
-
-<form>
-  <input type='text' name='guess' />
-  <input type='submit' value='Guess!' />
-</form>
